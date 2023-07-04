@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, sign_out_via: :delete
+  devise_for :users
 
   resources :games, only: [:index, :show]
 
