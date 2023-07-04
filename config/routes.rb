@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, sign_out_via: :delete
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :games, only: [:index, :show]
+
+  authenticated :user do
+    resources :bookmarks, only: [:index, :create, :destroy]
+  end
+
+  root to: 'games#index'
 end
