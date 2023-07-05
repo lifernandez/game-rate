@@ -13,7 +13,6 @@ class GamesController < ApplicationController
 
   def search_game(criteria)
     url = URI("https://opencritic-api.p.rapidapi.com/game/popular")
-    url = URI("https://opencritic-api.p.rapidapi.com/game/hall-of-fame")
     query_params = { criteria: criteria }
 
     headers = {
