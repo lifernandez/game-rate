@@ -1,10 +1,15 @@
 <h1>Games#index</h1>
 <p>Find me in app/views/games/index.html.erb</p>
 
-<%# <%= @search_results.inspect %> %>
+<%# @search_results.each do |result| %>
+  <%# <h3><%= result['name'] %><%#/h3> %>
+  <%# <p><%= result['tier'] %><%#/p> %>
+  <%# <p><%= result['topCriticScore'] %><%#/p> %>
+<%# <% end %>
 
-<% @search_results.each do |result| %>
-  <h3><%= result['name'] %></h3>
-  <p><%= result['tier'] %></p>
-  <p><%= result['topCriticScore'] %></p>
-<% end %>
+
+  <% @search_results.each do |result| %>
+    <h3><%= result['name'] %></h3>
+    <p><%= result['tier'] %></p>
+    <%= image_tag "https://img.opencritic.com/#{result['images'] ['box'] ['og']}" %>
+  <% end %>
