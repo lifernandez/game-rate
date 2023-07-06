@@ -1,10 +1,27 @@
 <h1>Games#index</h1>
 <p>Find me in app/views/games/index.html.erb</p>
 
-<%# <%= @search_results.inspect %> %>
+<%# @search_results.each do |result| %>
+  <%# <h3><%= result['name'] %><%#/h3> %>
+  <%# <p><%= result['tier'] %><%#/p> %>
+  <%# <p><%= result['topCriticScore'] %><%#/p> %>
+<%# <% end %>
 
-<% @search_results.each do |result| %>
-  <h3><%= result['name'] %></h3>
-  <p><%= result['tier'] %></p>
-  <p><%= result['topCriticScore'] %></p>
-<% end %>
+<div class="container pb-5">
+  <div class="main-container">
+    <div class="cards-query">
+      <% @search_results.each do |result| %>
+        <%= link_to game_path(game), class: "text-decoration-none mt-4 text-dark" do %>
+          <h3><%= result['name'] %></h3>
+          <p><%= result['tier'] %></p>
+          <p><%= result['topCriticScore'] %></p>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-3"><%= game.name %> <%= game.tier %></h2>
+            <%# <p><%= game.sports.split(',').join(", ") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
