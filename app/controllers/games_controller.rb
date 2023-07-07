@@ -4,7 +4,6 @@ class GamesController < ApplicationController
     @search_results = search_game('the witcher 3')
   end
 
-
   def show
     @game = Game.find(params[:id])
   end
