@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-
   resources :games, only: [:index, :show]
+  devise_for :users
 
   authenticated :user do
     resources :bookmarks, only: [:index, :create, :destroy]

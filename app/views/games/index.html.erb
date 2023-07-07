@@ -1,5 +1,3 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
 
 <%# @search_results.each do |result| %>
   <%# <h3><%= result['name'] %><%#/h3> %>
@@ -7,9 +5,44 @@
   <%# <p><%= result['topCriticScore'] %><%#/p> %>
 <%# <% end %>
 
+  <%# <% @search_results.each do |result| %>
+    <%# <h3><%= result['name'] %><%#/h3>
+    <%# <p><%= result['tier'] %><%#/p>
+    <%# <%= image_tag "https://img.opencritic.com/#{result['images'] ['box'] ['og']}" %>
+  <%# <% end %>
 
-  <% @search_results.each do |result| %>
-    <h3><%= result['name'] %></h3>
-    <p><%= result['tier'] %></p>
-    <%= image_tag "https://img.opencritic.com/#{result['images'] ['box'] ['og']}" %>
-  <% end %>
+<div class="main-container mt-5 mb-5 ms-5 me-5">
+  <div class="cards">
+    <% @search_results.each do |result| %>
+      <%= link_to games_path(result), class: "text-decoration-none mt-4 text-dark" do %>
+        <div class="card-trip">
+          <h3><%= result['name'] %></h3>
+          <%= image_tag "https://img.opencritic.com/#{result['images'] ['box'] ['og']}" %>
+          <h3><%= (result['topCriticScore']).to_d.truncate(1) %></h3>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%# <div class="cards">
+      <% @trainers.each_with_index do |trainer, i| %>
+        <%# <%= link_to trainer_path(trainer), class: "text-decoration-none mt-4 text-dark" do %>
+          <%# <div class="card-trip"> %>
+            <%# <% if trainer.user.photo.attached? %>
+              <%# <%= cl_image_tag trainer.user.photo.key %>
+            <%# <% else %>
+              <%# <%= image_tag "jumpn-default-profile-img.png" %>
+            <%# <% end %>
+            <%# <div class="card-trip-infos"> %>
+              <%# <div> %>
+                <%# <h2 class="mb-3"><%= trainer.user.first_name %> <%#= trainer.user.last_name %>
+                <%# <p><%= trainer.sports.split(',').join(", ") %>
+              <%# </div> %>
+            <%# </div> %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# <% end %>
+    <%# </div> %>

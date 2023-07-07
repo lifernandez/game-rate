@@ -1,2 +1,17 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<% @search_results.each do |result| %>
+  <%= link_to games_path(result), class: "text-decoration-none mt-4 text-dark" do %>
+    <div class="card-trip">
+      <h3><%= result['name'] %></h3>
+      <%= image_tag "https://img.opencritic.com/#{result['images'] ['box'] ['og']}" %>
+      <h3><%= (result['topCriticScore']).to_d.truncate(1) %></h3>
+    </div>
+<% end %>
+
+
+<h1><%= @game.name %></h1>
+<p>Tier: <%= @game.tier %></p>
+<p>Release Date: <%= @game.release_date %></p>
+<p>Summary: <%= @game.summary %></p>
+<p>Critic Score: <%= @game.critic_score %></p>
+<p>User Score: <%= @game.user_score %></p>
+
